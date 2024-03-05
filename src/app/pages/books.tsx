@@ -1,7 +1,6 @@
 'use client'
-import { Box, Flex, Heading, Icon, Image } from '@chakra-ui/react'
-import { NextPageWithLayout } from 'next'
-import React, { useEffect } from 'react'
+import { Box, Flex, Heading, Image } from '@chakra-ui/react'
+import React from 'react'
 
 interface IBook {
 	title: string
@@ -31,9 +30,9 @@ const books: IBook[] = [
 	},
 ]
 
-const Books: NextPageWithLayout = () => {
+const Books = () => {
 	const [bookIndex, setBookIndex] = React.useState(-1)
-    
+
 	const width = 55
 	const height = 400
 
@@ -70,12 +69,7 @@ const Books: NextPageWithLayout = () => {
 					</filter>
 				</defs>
 			</svg>
-			<Flex
-				alignItems='center'
-				gap={4}
-				width='container.xs'
-				overflowX='hidden'
-			>
+			<Flex alignItems='center' gap={4} width='container.xs' overflowX='hidden'>
 				{books.map((book, index) => (
 					<button
 						key={index}
@@ -105,6 +99,7 @@ const Books: NextPageWithLayout = () => {
 						<Flex
 							alignItems='flex-start'
 							justifyContent='center'
+							placeItems='center'
 							width={spineWidth}
 							height={bookHeight}
 							flexShrink={0}
@@ -135,11 +130,10 @@ const Books: NextPageWithLayout = () => {
 								}}
 							/>
 							<Heading
-								mt='20px'
 								as='h2'
 								style={{ writingMode: 'vertical-lr' }}
-								fontSize='2xl'
-								fontFamily={`"DM Sans", sans-serif`}
+								fontSize='24px'
+								fontFamily={`Copperplate, "DM Sans", sans-serif`}
 								userSelect='none'
 							>
 								{book.title}
